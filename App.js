@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-
 class Greeting extends React.Component {
   constructor(props){
     super(props);
@@ -12,7 +11,7 @@ class Greeting extends React.Component {
       this.setState(previousState => (
         { isShowingText: !previousState.isShowingText }
         ))
-      ), 100);
+      ), 5000);
     }
 
   render() {
@@ -21,7 +20,7 @@ class Greeting extends React.Component {
     }
     return (
       <View style={{alignItems: 'center'}}>
-        <Text>Hello {this.props.name}!</Text>
+        <Text style={styles.greeting}>Ahvey, to cansado -{this.props.name}</Text>
       </View>
     );
   }
@@ -29,13 +28,10 @@ class Greeting extends React.Component {
 
 export default class App extends React.Component {
   render() {
-    let pic = {
-      uri: 'http://papodegordo.com.br/wp-content/uploads/2010/gordonocomputador.jpg'
-    };
     return (
       <View style={styles.container}>
+        <Text style={styles.header}>Welcome to my First React Native App!</Text>
         <Greeting name="Catito" />
-        <Image source={pic} style={{width: 193, height: 110}}/>
       </View>
     );
   }
@@ -44,8 +40,18 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    fontSize: 30,
+    color: 'skyblue',
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  greeting: {
+    color: 'white',
+  },
+
 });
