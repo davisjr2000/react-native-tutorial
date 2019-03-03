@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
+import { StyleSheet, Text, Alert, TextInput, View, Image, Button } from 'react-native';
 
 class Greeting extends React.Component {
   constructor(props){
@@ -39,6 +39,12 @@ export default class App extends React.Component {
         <Text style={{padding: 10, fontSize: 42}}>
           {this.state.text.split(' ').map((word) => word && '🤠').join(' ')}
         </Text>
+        <Button
+            onPress={() => {
+              Alert.alert(["Ale", "Davis", "Flavio"][0]);
+            }}
+            title="Who is the Corno?"
+          />
       </View>
     );
   }
