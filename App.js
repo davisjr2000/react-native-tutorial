@@ -1,6 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
+
+class Greeting extends React.Component {
+  render() {
+    return (
+      <View style={{alignItems: 'center'}}>
+        <Text>Hello {this.props.name}!</Text>
+      </View>
+    );
+  }
+}
+
 export default class App extends React.Component {
   render() {
     let pic = {
@@ -8,6 +19,7 @@ export default class App extends React.Component {
     };
     return (
       <View style={styles.container}>
+        <Greeting name="Catito" />
         <Image source={pic} style={{width: 193, height: 110}}/>
       </View>
     );
