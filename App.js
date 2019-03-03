@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
 
 class Greeting extends React.Component {
   constructor(props){
@@ -27,11 +27,18 @@ class Greeting extends React.Component {
 }
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Welcome to my First React Native App!</Text>
-        <Greeting name="Catito" />
+        <Text style={styles.header}>GADO TRANSALATOR</Text>
+        <TextInput style={styles.input} placeholder="Type here to transalate" onChangeText={(text) => this.setState({text})}/>
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map((word) => word && '🤠').join(' ')}
+        </Text>
       </View>
     );
   }
@@ -42,16 +49,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   header: {
     fontSize: 30,
     color: 'skyblue',
     textAlign: 'center',
     fontWeight: 'bold',
+    marginTop: 50,
   },
   greeting: {
     color: 'white',
   },
+  input: {
+    backgroundColor: 'white',
+    width: 400,
+    padding: 20,
+    borderRadius: 5,
+    margin: 20,
+  }
 
 });
