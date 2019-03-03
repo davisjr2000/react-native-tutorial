@@ -1,11 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default class App extends React.Component {
   render() {
+    let pic = {
+      uri: 'http://papodegordo.com.br/wp-content/uploads/2010/gordonocomputador.jpg'
+    };
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Image source={pic} style={{width: 193, height: 110}}/>
       </View>
     );
   }
