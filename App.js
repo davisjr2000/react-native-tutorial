@@ -3,7 +3,22 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 class Greeting extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { isShowingText: true};
+
+    // Toggle state change every second
+    setInterval(() => (
+      this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+        ))
+      ), 100);
+    }
+
   render() {
+    if (!this.state.isShowingText) {
+      return null;
+    }
     return (
       <View style={{alignItems: 'center'}}>
         <Text>Hello {this.props.name}!</Text>
